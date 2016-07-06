@@ -1,0 +1,39 @@
+<project name="mulcms" default="compile" basedir=".">
+    <property name="build.dir" value="war/WEB-INF/classes"/>
+	<property name="sdk.dir" location="/Applications/eclipse4.3/plugins/com.google.appengine.eclipse.sdkbundle_1.9.30/appengine-java-sdk-1.9.30" />
+	<import file="${sdk.dir}/config/user/ant-macros.xml" />
+
+	<path id="project.classpath">
+		<pathelement path="war/WEB-INF/classes" />
+		<fileset dir="war/WEB-INF/lib">
+			<include name="**/*.jar" />
+		</fileset>
+		<fileset dir="${sdk.dir}/lib">
+			<include name="shared/**/*.jar" />
+		</fileset>
+	</path>
+
+	<target name="clean">
+		<delete dir="${build.dir}" />
+	</target>
+
+	<target name="copyjars" depends="clean" description="Copies the App Engine JARs to the WAR.">
+		<copy todir="war/WEB-INF/lib" flatten="true">
+			<fileset dir="${sdk.dir}/lib/user">
+				<include name="**/*.jar" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="compile" depends="copyjars"
+		description="Compiles Java source and copies other source files to the WAR.">
+		<mkdir dir="${build.dir}" />
+		<copy todir="${build.dir}">
+			<fileset dir="src">
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+		<javac srcdir="src" destdir="${build.dir}" classpathref="project.classpath"
+			debug="on" />
+	</target>
+</project>

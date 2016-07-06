@@ -1,8 +1,8 @@
-<!-- Indices written at Wed, 6 Jul 2016 21:01:26 JST -->
+<!-- Indices written at Wed, 6 Jul 2016 21:23:07 JST -->
 
 <datastore-indexes>
 
-    <!-- Used 27 times in query history -->
+    <!-- Used 39 times in query history -->
     <datastore-index kind="Rendering" ancestor="false" source="auto">
         <property name="assetsRef" direction="asc"/>
         <property name="lang" direction="asc"/>
@@ -13,6 +13,12 @@
     <!-- Used 1 time in query history -->
     <datastore-index kind="Rendering" ancestor="false" source="auto">
         <property name="assetsRef" direction="asc"/>
+        <property name="slim3.classHierarchyList" direction="asc"/>
+        <property name="createDate" direction="asc"/>
+    </datastore-index>
+
+    <!-- Used 1 time in query history -->
+    <datastore-index kind="Assets" ancestor="false" source="auto">
         <property name="slim3.classHierarchyList" direction="asc"/>
         <property name="createDate" direction="asc"/>
     </datastore-index>
