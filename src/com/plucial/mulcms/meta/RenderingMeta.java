@@ -1,6 +1,6 @@
 package com.plucial.mulcms.meta;
 
-//@javax.annotation.Generated(value = { "slim3-gen", "@VERSION@" }, date = "2016-07-06 19:57:04")
+//@javax.annotation.Generated(value = { "slim3-gen", "@VERSION@" }, date = "2016-07-08 14:19:55")
 /** */
 public final class RenderingMeta extends org.slim3.datastore.ModelMeta<com.plucial.mulcms.model.Rendering> {
 

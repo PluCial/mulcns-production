@@ -1,6 +1,6 @@
 package com.plucial.mulcms.meta.res;
 
-//@javax.annotation.Generated(value = { "slim3-gen", "@VERSION@" }, date = "2016-07-06 19:57:04")
+//@javax.annotation.Generated(value = { "slim3-gen", "@VERSION@" }, date = "2016-07-08 14:19:54")
 /** */
 public final class InnerTextResMeta extends org.slim3.datastore.ModelMeta<com.plucial.mulcms.model.res.InnerTextRes> {
 

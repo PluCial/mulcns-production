@@ -1,5 +1,6 @@
-<project name="mulcms" default="compile" basedir=".">
+<project name="mulcms-release" default="compile" basedir=".">
     <property name="build.dir" value="war/WEB-INF/classes"/>
+    <property name="release.ploject.dir" value="/Users/takahara/Documents/eclipse-plucial2/mulcms-release-v1"/>
 	<property name="sdk.dir" location="/Applications/eclipse4.3/plugins/com.google.appengine.eclipse.sdkbundle_1.9.30/appengine-java-sdk-1.9.30" />
 	<import file="${sdk.dir}/config/user/ant-macros.xml" />
 
@@ -35,5 +36,20 @@
 		</copy>
 		<javac srcdir="src" destdir="${build.dir}" classpathref="project.classpath"
 			debug="on" />
+	</target>
+	
+	<target name="copyreleasefile" depends="compile" description="Copies the App Engine JARs to the WAR.">
+	    <!-- <copy preservelastmodified="true" file="war/queue.xml" tofile="${release.ploject.dir}/war/queue.xml" />
+		<copy preservelastmodified="true" file="war/queue.xml" tofile="${release.ploject.dir}/war/queue.xml" /> -->
+		<copy todir="${release.ploject.dir}/war/WEB-INF/lib" flatten="true">
+			<fileset dir="war/WEB-INF/lib">
+				<include name="**/*.jar" />
+			</fileset>
+		</copy>
+		<copy todir="${release.ploject.dir}/war">
+			<fileset dir="war">
+				<include name="**/*.jsp" />
+			</fileset>
+		</copy>
 	</target>
 </project>
