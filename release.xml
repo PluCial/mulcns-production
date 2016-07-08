@@ -38,17 +38,35 @@
 			debug="on" />
 	</target>
 	
-	<target name="copyreleasefile" depends="compile" description="Copies the App Engine JARs to the WAR.">
+	<target name="release" depends="compile" description="Copies the App Engine JARs to the WAR.">
 	    <!-- <copy preservelastmodified="true" file="war/queue.xml" tofile="${release.ploject.dir}/war/queue.xml" />
 		<copy preservelastmodified="true" file="war/queue.xml" tofile="${release.ploject.dir}/war/queue.xml" /> -->
+		
+		<!-- lib -->
 		<copy todir="${release.ploject.dir}/war/WEB-INF/lib" flatten="true">
 			<fileset dir="war/WEB-INF/lib">
 				<include name="**/*.jar" />
 			</fileset>
 		</copy>
+		
+		<!-- jsp -->
 		<copy todir="${release.ploject.dir}/war">
 			<fileset dir="war">
 				<include name="**/*.jsp" />
+			</fileset>
+		</copy>
+		
+		<!-- class & properties -->
+		<copy todir="${release.ploject.dir}/${build.dir}">
+			<fileset dir="${build.dir}">
+			    <include name="**/*.class" />
+			    <include name="**/*.properties" />
+			</fileset>
+		</copy>
+		
+		<!-- assets -->
+		<copy todir="${release.ploject.dir}/war/mulcms/assets">
+			<fileset dir="war/mulcms/assets">
 			</fileset>
 		</copy>
 	</target>
