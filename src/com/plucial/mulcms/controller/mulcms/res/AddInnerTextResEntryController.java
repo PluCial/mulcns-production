@@ -45,7 +45,17 @@ public class AddInnerTextResEntryController extends BaseController {
         }
         
         Document doc = Jsoup.parse(assets.getHtmlString());
-        Elements elements = doc.select(cssQuery);
+        Elements elements = null;
+        try {
+            elements = doc.select(cssQuery);
+        }catch(Exception e) {
+            Validators v = new Validators(request);
+            v.add("cssQuery",
+                new NGValidator("指定したCss Queryの書式が正しくありません。"));
+            v.validate();
+            return forward(returnUrl);
+        }
+        
         if(elements == null || elements.size() <= 0) {
             Validators v = new Validators(request);
             v.add("cssQuery",

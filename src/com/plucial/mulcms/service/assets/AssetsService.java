@@ -63,8 +63,7 @@ public class AssetsService {
      * @throws TooManyException
      */
     public static void updateHtml(Assets assets, Lang htmlLang, String html) throws TooManyException {
-        Document doc = Jsoup.parse(HtmlUtils.htmlDecode(html));
-        
+
         Transaction tx = Datastore.beginTransaction();
         try {
             if(assets.getLangList().indexOf(htmlLang) < 0) {
@@ -72,9 +71,10 @@ public class AssetsService {
             }
             
             assets.setHtmlLang(htmlLang);
-            assets.setHtml(new Text(doc.html()));
+            assets.setHtml(new Text(html));
             Datastore.put(tx, assets);
             
+            Document doc = Jsoup.parse(HtmlUtils.htmlDecode(html));
             ResService.importByDoc(tx, assets, htmlLang, doc);
             
             tx.commit();

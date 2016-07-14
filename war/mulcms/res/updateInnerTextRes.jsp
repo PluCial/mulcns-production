@@ -57,7 +57,7 @@ String content = (String)request.getAttribute("lang");
 									<h3 class="box-title"><%=HtmlUtils.htmlEscape(res.getCssQuery()) %></h3>
 									<div class="box-tools pull-right">
 										<div class="checkbox">
-											<label><input type="checkbox" ${f:checkbox("editMode")}/> Edit Mode</label>
+											<label><input type="checkbox" ${f:checkbox("editMode")}/> 編集可能</label>
 										</div>
 									</div>
 				                </div><!-- /.box-header -->
