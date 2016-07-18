@@ -19,6 +19,7 @@ Lang appBaseLang = Lang.valueOf(appPropertyMap.get(AppProperty.APP_BASE_LANG.toS
 String adminEmail = appPropertyMap.get(AppProperty.APP_ADMIN_EMAIL.toString());
 String gcsBucketName = appPropertyMap.get(AppProperty.APP_GCS_BUCKET_NAME.toString());
 String apiServerKey = appPropertyMap.get(AppProperty.GOOGLE_API_PUBLIC_SERVER_KEY.toString());
+String licenseKey = appPropertyMap.get(AppProperty.LICENSE_KEY.toString());
 %>
 <!DOCTYPE html>
 <html>
@@ -142,6 +143,20 @@ String apiServerKey = appPropertyMap.get(AppProperty.GOOGLE_API_PUBLIC_SERVER_KE
 													</div>
 													<div class="col-md-2">
 														<button type="submit" name="propertyKey" value="<%=AppProperty.GOOGLE_API_PUBLIC_SERVER_KEY.toString() %>" class="btn btn-primary form-control">変更</button>
+													</div>
+												</div>
+											</form>
+										</div>
+										
+										<div class="form-group">
+											<form action="/mulcms/setting/updateEntry" method="post">
+												<label>ライセンスキー</label>
+												<div class="row">
+													<div class="col-md-10">
+														<input name="propertyValue" class="form-control" value="<%=StringUtil.isEmpty(licenseKey) ? "" : licenseKey %>">
+													</div>
+													<div class="col-md-2">
+														<button type="submit" name="propertyKey" value="<%=AppProperty.LICENSE_KEY.toString() %>" class="btn btn-primary form-control">変更</button>
 													</div>
 												</div>
 											</form>

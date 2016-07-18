@@ -1,5 +1,9 @@
 package com.plucial.mulcms.service;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,6 +17,7 @@ import com.google.apphosting.api.ApiProxy;
 import com.plucial.gae.global.exception.ObjectNotExistException;
 import com.plucial.mulcms.dao.AppDao;
 import com.plucial.mulcms.enums.AppProperty;
+import com.plucial.mulcms.exception.NoLicenseException;
 import com.plucial.mulcms.meta.AppMeta;
 import com.plucial.mulcms.model.App;
 
@@ -106,6 +111,74 @@ public class AppService {
         
         dao.put(model);
         return model;
+    }
+    
+    /**
+     * ライスンスキーの取得
+     * @param appId
+     * @return
+     * @throws NoSuchAlgorithmException
+     */
+    public static String getLicenseKey(boolean isLocal) throws NoSuchAlgorithmException {
+        
+        String appDefaultHostName = getDefaultGcsBucketName(isLocal);
+        
+        StringBuilder buff = new StringBuilder();
+        if (appDefaultHostName != null && !appDefaultHostName.isEmpty()) {
+            MessageDigest md = MessageDigest.getInstance("SHA-1");
+            md.update(com.plucial.mulcms.App.APP_DISPLAY_NAME.getBytes());
+            md.update(appDefaultHostName.getBytes());
+            byte[] digest = md.digest();
+            for (byte d : digest) {
+                buff.append((int)d&0xFF);
+            }
+        }
+        return buff.toString();
+    }
+    
+    /**
+     * 利用可能かチェック
+     * @return
+     * @throws NoLicenseException 
+     */
+    public static void hasLicense(boolean isLocal) throws NoLicenseException {
+        try {
+            // DBのライスンスキーを取得
+            String licenseKey = get(AppProperty.LICENSE_KEY.toString()).getValueString();
+
+            // ライセンスキー不一致
+            if(licenseKey == null || !licenseKey.equals(getLicenseKey(isLocal))) {
+                throw new NoLicenseException();
+            }
+
+        } catch (Exception e) {
+            throw new NoLicenseException();
+        }
+    }
+    
+    /**
+     * フリーの期限を取得
+     * @return
+     * @throws ObjectNotExistException
+     */
+    public static Date getFreePeriodDate() throws ObjectNotExistException {
+        // DBのライスンスキーを取得
+        Date deployDate = get(AppProperty.APP_DEFAULT_HOST_NAME.toString()).getCreateDate();
+        
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(deployDate);
+        cal.add(Calendar.DATE, 30);
+        
+        return cal.getTime();
+    }
+    
+    /**
+     * ライセンスキーの追加
+     * @param isLocal
+     * @throws NoSuchAlgorithmException
+     */
+    public static void addLicense(boolean isLocal) throws NoSuchAlgorithmException {
+        put(AppProperty.LICENSE_KEY, getLicenseKey(isLocal));
     }
     
     // ----------------------------------------------------------------------

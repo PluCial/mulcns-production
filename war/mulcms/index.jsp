@@ -6,9 +6,14 @@
 <%@ page import="com.plucial.mulcms.model.*" %>
 <%@ page import="com.plucial.mulcms.model.assets.*" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="com.plucial.global.Lang" %>
 <%
 List<Page> pageList = (List<Page>) request.getAttribute("pageList");
+Date freePeriodDate = (Date) request.getAttribute("freePeriodDate");
+
+SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH:mm");
 %>
 <!DOCTYPE html>
 <html>
@@ -40,6 +45,14 @@ List<Page> pageList = (List<Page>) request.getAttribute("pageList");
 			<section class="content">
 				<div class="row">
 					<div class="col-md-offset-1 col-md-10">
+						<%if(freePeriodDate != null) { %>
+						<div class="alert alert-warning alert-dismissable">
+							<h4><i class="icon fa fa-warning"></i> 無料期間は <%=sdf.format(freePeriodDate) %> まで</h4>
+							<p>一度ライセンスを購入すると、永久的にご利用頂けます。(以後利用料金は発生することはありません。)</p>
+							<p><a class="btn btn-primary" href="/mulcms/billing/" style="text-decoration: none;">今すぐライセンスを購入</a></p>
+						</div>
+						<%} %>
+						
 						<h2 class="page-header"><i class="fa fa-sitemap"></i> Pages</h2>
 						
 						<div class="row">

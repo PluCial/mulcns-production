@@ -40,6 +40,20 @@
                 <i class="fa fa-bars"></i>
               </button>
             </div>
+            
+            <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">ドキュメント <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="http://mulcms.plucial.com/ja/manual/setup.html" target="_blank">マニュアル</a></li>
+                    <li><a href="http://mulcms.plucial.com/ja/info/agreement.html" target="_blank">利用規約</a></li>
+                    <li class="divider"></li>
+                    <li><a href="http://inc.plucial.com/" target="_blank">株式会社プラシャル</a></li>
+                  </ul>
+                </li>
+              </ul>                        
+            </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <!-- Navbar Right Menu -->

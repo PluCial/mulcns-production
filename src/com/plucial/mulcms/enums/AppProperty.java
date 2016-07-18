@@ -13,7 +13,8 @@ public enum AppProperty {
     APP_ADMIN_EMAIL(false),
     APP_BASE_LANG(false),
     APP_GCS_BUCKET_NAME(false),
-    GOOGLE_API_PUBLIC_SERVER_KEY(false);
+    GOOGLE_API_PUBLIC_SERVER_KEY(false),
+    LICENSE_KEY(false);
     
     /** デフォルト値 */
     private String defaultValue;

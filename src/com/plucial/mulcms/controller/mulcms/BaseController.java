@@ -2,16 +2,24 @@ package com.plucial.mulcms.controller.mulcms;
 
 import java.util.Map;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.slim3.controller.Navigation;
 
 import com.google.appengine.api.users.User;
+import com.plucial.gae.global.exception.NoContentsException;
 import com.plucial.global.Lang;
 import com.plucial.mulcms.controller.AppController;
 import com.plucial.mulcms.enums.AppProperty;
 import com.plucial.mulcms.service.AppService;
 
 public abstract class BaseController extends AppController {
+    
+    /**
+     * Logger
+     */
+    private static final Logger logger = Logger.getLogger(BaseController.class.getName());
 
     @Override
     protected Navigation notSigned(Map<String, String> appPropertyMap,
@@ -55,6 +63,25 @@ public abstract class BaseController extends AppController {
         
         
         return execute(appPropertyMap, user, userLocaleProp);
+    }
+    
+    /**
+     * エラーハンドリング
+     */
+    @Override
+    public Navigation handleError(Throwable error) throws Throwable {
+        
+        // 404エラー
+        if(error instanceof NoContentsException) {
+            return forward("/mulcms/error404.jsp");
+        }
+        
+        // 開発環境ではなく、404ではないエラーが発生した場合エラーログを出力
+        logger.log(Level.WARNING, error.getMessage(), error);
+        
+        
+        // 500エラー画面に遷移する
+        return redirect("/mulcms/error500.jsp");
     }
 
     /**

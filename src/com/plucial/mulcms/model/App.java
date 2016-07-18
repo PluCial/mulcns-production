@@ -1,9 +1,12 @@
 package com.plucial.mulcms.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import org.slim3.datastore.Attribute;
+import org.slim3.datastore.CreationDate;
 import org.slim3.datastore.Model;
+import org.slim3.datastore.ModificationDate;
 
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.Text;
@@ -21,6 +24,18 @@ public class App implements Serializable {
     
     @Attribute(unindexed = true)
     private Text value;
+    
+    /**
+     * 作成日時
+     */
+    @Attribute(listener = CreationDate.class)
+    private Date createDate;
+    
+    /**
+     * 更新日時
+     */
+    @Attribute(listener = ModificationDate.class)
+    private Date updateDate;
     
     /**
      * コンテンツの文字列を取得
@@ -104,5 +119,21 @@ public class App implements Serializable {
 
     public void setValue(Text value) {
         this.value = value;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public Date getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
     }
 }
