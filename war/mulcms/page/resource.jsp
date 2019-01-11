@@ -1,6 +1,4 @@
 <%@page pageEncoding="UTF-8" isELIgnored="false" session="false" trimDirectiveWhitespaces="true"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@taglib prefix="f" uri="http://www.slim3.org/functions"%>
 <%@ page import="com.plucial.mulcms.model.assets.*" %>
 <%@ page import="com.plucial.mulcms.enums.*" %>
@@ -33,7 +31,7 @@ Properties userProp = (Properties) request.getAttribute("userProp");
 		<!-- site-header -->
 		<jsp:include page="/mulcms/includes/site_header.jsp" />
 		<!-- /site-header -->
-      
+
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
@@ -41,7 +39,7 @@ Properties userProp = (Properties) request.getAttribute("userProp");
 			<section class="content-header">
 				<h1><%=pageObj.getKey().getName() %><small><%=userProp.getProperty("lang." + targetLang.toString()) %></small></h1>
 			</section>
-			
+
 			<section class="content">
 				<div class="row">
 					<div class="col-md-3">
@@ -54,7 +52,7 @@ Properties userProp = (Properties) request.getAttribute("userProp");
 						</div>
 						<!-- /alert -->
 						<%} %>
-						
+
 						<%if(supportLangList.indexOf(targetLang) >= 0) { %>
 						<div class="nav-tabs-custom">
 							<ul class="nav nav-tabs pull-right">
@@ -118,7 +116,7 @@ Properties userProp = (Properties) request.getAttribute("userProp");
 							</div><!-- /.tab-content -->
 						</div>
 						<%} %>
-						
+
 						<%if(pageObj.getHtmlLang() != targetLang) { %>
 						<div class="box box-solid">
 							<div class="box-header with-border">
@@ -132,7 +130,7 @@ Properties userProp = (Properties) request.getAttribute("userProp");
 									<div class="form-group">
 										<select name="srcLang" class="form-control">
 											<option value="">--- 翻訳元の言語 ---</option>
-											<%for(Lang lang: supportLangList) { 
+											<%for(Lang lang: supportLangList) {
 												if(lang != targetLang) {
 											%>
 											<option value="<%=lang.toString() %>"><%=userProp.getProperty("lang." + lang.toString()) %></option>
@@ -140,7 +138,7 @@ Properties userProp = (Properties) request.getAttribute("userProp");
 											<%} %>
 										</select>
 									</div>
-									
+
 									<%if(supportLangList.indexOf(targetLang) >= 0) { %>
 									<div class="form-group">
 										<div class="checkbox">
@@ -151,7 +149,7 @@ Properties userProp = (Properties) request.getAttribute("userProp");
 										<small class="text-muted">[全てを再翻訳する] をチェックして翻訳すると、既に翻訳済みの項目も再翻訳されます。</small>
 									</div>
 									<%} %>
-									
+
 									<div class="form-group text-right">
 										<input type="hidden" name="targetLang" value="<%=targetLang.toString() %>" />
 										<button name="keyString" value="<%=pageObj.getKey().getName() %>" type="submit" class="btn btn-primary">翻訳</button>
@@ -164,29 +162,29 @@ Properties userProp = (Properties) request.getAttribute("userProp");
 							</form>
 						</div>
 						<%} %>
-						
+
 						<%if(supportLangList.indexOf(targetLang) >= 0) { %>
 						<a class="btn btn-default btn-block margin-bottom" target="view" href="/<%=targetLang.toString() %><%=pageObj.getKey().getName() %>"><i class="fa fa-external-link"></i> ページを確認</a>
 						<%} %>
-						
+
 						<%if(pageObj.getHtmlLang() == targetLang) { %>
 						<a href="/mulcms/page/extractionResEntry?keyString=<%=pageObj.getKey().getName() %>&lang=<%=targetLang.toString() %>" class="btn btn-primary btn-block margin-bottom"><i class="fa fa-refresh"></i> リソースを更新</a>
 						<%} %>
-						
+
 						<%if(supportLangList.indexOf(targetLang) >= 0) { %>
 						<a class="btn btn-danger btn-block margin-bottom" href="/mulcms/page/deleteLang?keyString=<%=pageObj.getKey().getName() %>&lang=<%=targetLang.toString() %>"><i class="fa fa-trash"></i> <%=userProp.getProperty("lang." + targetLang.toString()) %>を削除</a>
 						<%} %>
 					</div>
-					
+
 					<div class="col-md-9">
-						
+
 						<%if(supportLangList.indexOf(targetLang) >= 0) { %>
 						<div class="box box-primary">
 							<div class="box-header with-border">
-								<i class="fa fa-text-width"></i> 
+								<i class="fa fa-text-width"></i>
 								<h3 class="box-title">テキストリソース<small>翻訳対象</small></h3>
 							</div><!-- /.box-header -->
-	
+
 							<div class=".box-body">
 								<div class="table-responsive mailbox-messages">
 									<table class="table table-hover table-striped">
@@ -219,12 +217,12 @@ Properties userProp = (Properties) request.getAttribute("userProp");
 								</div><!-- /.mail-box-messages -->
 		                	</div><!-- /.box-body -->
 						</div><!-- /. box -->
-						
+
 						<div class="box box-success">
 							<div class="box-header with-border">
 								<h3 class="box-title"><i class="fa fa-code"></i> 属性リソース</h3>
 							</div><!-- /.box-header -->
-	
+
 							<div class=".box-body">
 								<div class="table-responsive mailbox-messages">
 									<table class="table table-hover table-striped">
@@ -262,7 +260,7 @@ Properties userProp = (Properties) request.getAttribute("userProp");
 
 
 		</div><!-- /.content-wrapper -->
-      
+
 		<!-- Control Sidebar -->
 		<aside class="control-sidebar control-sidebar-light" style="position: fixed;max-height: 100%;overflow: auto;padding-bottom: 50px;">
 			<div class="tab-content">
@@ -281,7 +279,7 @@ Properties userProp = (Properties) request.getAttribute("userProp");
 								<%}else { %>
 									<%=userProp.getProperty("lang." + lang.toString()) %>
 								<%} %>
-								
+
 								<%if(pageObj.getLangList().indexOf(lang) >= 0) { %>
 								<i class="fa fa-check-circle text-primary pull-right"></i>
 								<%} %>
@@ -294,14 +292,14 @@ Properties userProp = (Properties) request.getAttribute("userProp");
 		</aside>
 		<div class='control-sidebar-bg'></div>
 		<!-- /.control-sidebar -->
-		
+
 		<!-- page footer -->
 	    <jsp:include page="/mulcms/includes/site_footer.jsp" />
 		<!-- /page footer -->
 
 	</div><!-- ./wrapper -->
-	
-	    
+
+
 	<!-- page script -->
 	<jsp:include page="/mulcms/includes/html_script.jsp" />
 	<!-- page script -->

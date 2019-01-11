@@ -1,14 +1,11 @@
 <%@page pageEncoding="UTF-8" isELIgnored="false" session="false" trimDirectiveWhitespaces="true"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@taglib prefix="f" uri="http://www.slim3.org/functions"%>
 <%@ page import="com.plucial.mulcms.App" %>
-	<aside class="control-sidebar control-sidebar-dark">                
+	<aside class="control-sidebar control-sidebar-dark">
         <!-- Create the tabs -->
         <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
           <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-          
+
           <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
         </ul>
         <!-- Tab panes -->
@@ -55,59 +52,59 @@
               </li>
             </ul><!-- /.control-sidebar-menu -->
 
-            <h3 class="control-sidebar-heading">Tasks Progress</h3> 
+            <h3 class="control-sidebar-heading">Tasks Progress</h3>
             <ul class='control-sidebar-menu'>
               <li>
-                <a href='javascript::;'>               
+                <a href='javascript::;'>
                   <h4 class="control-sidebar-subheading">
                     Custom Template Design
                     <span class="label label-danger pull-right">70%</span>
                   </h4>
                   <div class="progress progress-xxs">
                     <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                  </div>                                    
+                  </div>
                 </a>
-              </li> 
+              </li>
               <li>
-                <a href='javascript::;'>               
+                <a href='javascript::;'>
                   <h4 class="control-sidebar-subheading">
                     Update Resume
                     <span class="label label-success pull-right">95%</span>
                   </h4>
                   <div class="progress progress-xxs">
                     <div class="progress-bar progress-bar-success" style="width: 95%"></div>
-                  </div>                                    
+                  </div>
                 </a>
-              </li> 
+              </li>
               <li>
-                <a href='javascript::;'>               
+                <a href='javascript::;'>
                   <h4 class="control-sidebar-subheading">
                     Laravel Integration
                     <span class="label label-waring pull-right">50%</span>
                   </h4>
                   <div class="progress progress-xxs">
                     <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
-                  </div>                                    
+                  </div>
                 </a>
-              </li> 
+              </li>
               <li>
-                <a href='javascript::;'>               
+                <a href='javascript::;'>
                   <h4 class="control-sidebar-subheading">
                     Back End Framework
                     <span class="label label-primary pull-right">68%</span>
                   </h4>
                   <div class="progress progress-xxs">
                     <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
-                  </div>                                    
+                  </div>
                 </a>
-              </li>               
-            </ul><!-- /.control-sidebar-menu -->         
+              </li>
+            </ul><!-- /.control-sidebar-menu -->
 
           </div><!-- /.tab-pane -->
           <!-- Stats tab content -->
           <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div><!-- /.tab-pane -->
           <!-- Settings tab content -->
-          <div class="tab-pane" id="control-sidebar-settings-tab">            
+          <div class="tab-pane" id="control-sidebar-settings-tab">
             <form method="post">
               <h3 class="control-sidebar-heading">General Settings</h3>
               <div class="form-group">
@@ -146,21 +143,21 @@
                 <label class="control-sidebar-subheading">
                   Show me as online
                   <input type="checkbox" class="pull-right" checked />
-                </label>                
+                </label>
               </div><!-- /.form-group -->
 
               <div class="form-group">
                 <label class="control-sidebar-subheading">
                   Turn off notifications
                   <input type="checkbox" class="pull-right" />
-                </label>                
+                </label>
               </div><!-- /.form-group -->
 
               <div class="form-group">
                 <label class="control-sidebar-subheading">
                   Delete chat history
                   <a href="javascript::;" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
-                </label>                
+                </label>
               </div><!-- /.form-group -->
             </form>
           </div><!-- /.tab-pane -->

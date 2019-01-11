@@ -1,6 +1,4 @@
 <%@page pageEncoding="UTF-8" isELIgnored="false" session="false" trimDirectiveWhitespaces="true"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@taglib prefix="f" uri="http://www.slim3.org/functions"%>
 <%@ page import="com.plucial.mulcms.App" %>
 <%@ page import="com.plucial.mulcms.model.*" %>
@@ -40,16 +38,16 @@ String appId = (String) request.getAttribute("appId");
 		<!-- site-header -->
 		<jsp:include page="/mulcms/includes/site_header.jsp" />
 		<!-- /site-header -->
-      
+
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
-	
+
 	        <!-- Main content -->
 			<section class="content-header">
 			</section><!-- /.content -->
 			<!-- /.content -->
-			
+
 			<section class="invoice">
 				<!-- title row -->
 				<div class="row">
@@ -108,9 +106,9 @@ String appId = (String) request.getAttribute("appId");
 					</div>
 				</div>
 			</section><!-- /.content -->
-			
+
 			<div class="pad margin no-print">
-				<div class="callout callout-info" style="margin-bottom: 0!important;">												
+				<div class="callout callout-info" style="margin-bottom: 0!important;">
 					<h4><i class="fa fa-info"></i> Note:</h4>
 					PayPalアカウントをお持ちでない、もしくはお持ちのPayPalアカウントの本人確認処理が未完了で限度額によりお支払いできない場合は、銀行振込によるライセンス取得もご利用頂けます。<br />
 					銀行振込によるライセンス取得をご希望の場合は info@plucial.com へご連絡ください。<br /><br />
@@ -122,21 +120,21 @@ project_id:<%=appId %>
 				</div>
 			</div>
 		</div><!-- /.content-wrapper -->
-      
+
 		<!-- Control Sidebar -->
-		<jsp:include page="/mulcms/includes/control_sidebar.jsp" />   
+		<jsp:include page="/mulcms/includes/control_sidebar.jsp" />
 		<!-- /.control-sidebar -->
-		
+
 		<!-- page footer -->
 	    <jsp:include page="/mulcms/includes/site_footer.jsp" />
 		<!-- /page footer -->
-	      
+
 		<!-- Add the sidebar's background. This div must be placed
 	           immediately after the control sidebar -->
 		<div class='control-sidebar-bg'></div>
 	    </div><!-- ./wrapper -->
-	
-	    
+
+
 	    <!-- page script -->
 	    <jsp:include page="/mulcms/includes/html_script.jsp" />
 	    <!-- page script -->

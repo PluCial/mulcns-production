@@ -1,7 +1,4 @@
 <%@page pageEncoding="UTF-8" isELIgnored="false" session="false" trimDirectiveWhitespaces="true"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@taglib prefix="f" uri="http://www.slim3.org/functions"%>
 <%@ page import="com.plucial.mulcms.App" %>
 <!-- 	<header class="main-header">
@@ -31,7 +28,7 @@
           </div>
         </nav>
       </header> -->
-      <header class="main-header">               
+      <header class="main-header">
         <nav class="navbar navbar-static-top">
           <div class="container">
             <div class="navbar-header">
@@ -40,7 +37,7 @@
                 <i class="fa fa-bars"></i>
               </button>
             </div>
-            
+
             <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
               <ul class="nav navbar-nav">
                 <li class="dropdown">
@@ -52,7 +49,7 @@
                     <li><a href="http://inc.plucial.com/" target="_blank">株式会社プラシャル</a></li>
                   </ul>
                 </li>
-              </ul>                        
+              </ul>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
