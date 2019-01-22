@@ -1,6 +1,6 @@
 package com.plucial.mulcms.meta.widgets.form;
 
-//@javax.annotation.Generated(value = { "slim3-gen", "@VERSION@" }, date = "2019-01-11 14:32:09")
+//@javax.annotation.Generated(value = { "slim3-gen", "@VERSION@" }, date = "2019-01-19 14:57:27")
 /** */
 public final class FormControlMeta extends org.slim3.datastore.ModelMeta<com.plucial.mulcms.model.widgets.form.FormControl> {
 
