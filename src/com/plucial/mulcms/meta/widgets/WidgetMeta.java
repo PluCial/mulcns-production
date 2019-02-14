@@ -1,6 +1,6 @@
 package com.plucial.mulcms.meta.widgets;
 
-//@javax.annotation.Generated(value = { "slim3-gen", "@VERSION@" }, date = "2019-01-24 01:40:14")
+//@javax.annotation.Generated(value = { "slim3-gen", "@VERSION@" }, date = "2019-02-12 09:51:34")
 /** */
 public final class WidgetMeta extends org.slim3.datastore.ModelMeta<com.plucial.mulcms.model.widgets.Widget> {
 
